@@ -1,0 +1,17 @@
+library(readr); library(dplyr)
+train <- read_csv("C:/Users/wjssm/Desktop/DM_project/weather/data/train_cluster0.csv")
+library(randomForest)
+
+rf1 <- randomForest(y~., data = train)
+VarImpPlot(rf1)
+
+partialPlot(rf1, pred.data = train, x.var = 'signal_num')
+partialPlot(rf1, pred.data = train, x.var = 'road_length')
+partialPlot(rf1, pred.data = train, x.var = 'cctv_length')
+partialPlot(rf1, pred.data = train, x.var = 'd1_length')
+partialPlot(rf1, pred.data = train, x.var = 'time')
+partialPlot(rf1, pred.data = train, x.var = 'entrance_length')
+partialPlot(rf1, pred.data = train, x.var = 'signal_length')
+partialPlot(rf1, pred.data = train, x.var = 'd3_length')
+partialPlot(rf1, pred.data = train, x.var = 'days_4')
+partialPlot(rf1, pred.data = train, x.var = 'd4_num')
